@@ -45,6 +45,7 @@ class SwooleServer{
        
         $this->serv->task(json_encode($data));
     }
+    
     public function onTask($serv,$task_id,$from_id,$data){
             echo "This Task {$task_id} from worker {$from_id}";
 
@@ -55,9 +56,11 @@ class SwooleServer{
 
             return "finish";
     }
+
     public function onClose($serv,$fd,$from_id){
         echo "close";
     }
+
     public function onFinish($serv,$task_id,$data){
         echo "finish";
         echo "result : {$data}";
