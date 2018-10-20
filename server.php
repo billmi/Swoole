@@ -17,7 +17,7 @@ class SwooleServer{
         ));
 
 
-        $this->serv->on('Start',array($this,'onStart'));
+        $this->serv->on('WorkerStart',array($this,'WorkerStart'));
         $this->serv->on('Connect',array($this,'onConnect'));
         $this->serv->on('Receive',array($this,'onReceive'));
         $this->serv->on('Task',array($this,'onTask'));
@@ -26,7 +26,7 @@ class SwooleServer{
         $this->serv->start();
     }
 
-    public function onStart($serv){
+    public function WorkerStart($serv){
         echo "start\r\n";
     }
 
